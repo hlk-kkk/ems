@@ -1,0 +1,29 @@
+server:
+  context-path: /ems
+  port: 8888
+  #   <!-- 支持热部署-->
+  jsp-servlet:
+    init-parameters:
+      development: true
+mybatis:
+  mapper-locations: classpath:/com/hlk/ems/mapper/*.xml
+  type-aliases-package: com.hlk.ems.entity;
+spring:
+  #  <!-- 视图解析器的动态参数 -->
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
+  datasource:
+    url: jdbc:mysql://localhost:3306/ems?characterEncoding=utf8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  http:
+    encoding:
+    charset: utf-8
+    force: true
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 200MB

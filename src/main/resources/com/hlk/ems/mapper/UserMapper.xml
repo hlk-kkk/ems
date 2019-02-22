@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlk.ems.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.hlk.ems.entity.User">
+        <id column="userid" property="userid" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="userpwd" property="userpwd" jdbcType="VARCHAR"/>
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        userid
+        ,
+        username,
+        userpwd,
+        realname,
+        sex
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from k_user
+        where userid = #{userid,jdbcType=INTEGER}
+    </select>
+    <select id="selectByUser" resultMap="BaseResultMap" parameterType="com.hlk.ems.entity.User">
+        select
+        <include refid="Base_Column_List"/>
+        from k_user
+        where username = #{username,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from k_user
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from k_user
+        where userid = #{userid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.hlk.ems.entity.User">
+        insert into k_user (userid, username, userpwd,
+                            realname, sex)
+        values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR},
+                #{realname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.hlk.ems.entity.User">
+        insert into k_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="userpwd != null">
+                userpwd,
+            </if>
+            <if test="realname != null">
+                realname,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="userpwd != null">
+                #{userpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="realname != null">
+                #{realname,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.hlk.ems.entity.User">
+        update k_user
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="userpwd != null">
+                userpwd = #{userpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="realname != null">
+                realname = #{realname,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+        </set>
+        where userid = #{userid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.hlk.ems.entity.User">
+        update k_user
+        set username = #{username,jdbcType=VARCHAR},
+            userpwd  = #{userpwd,jdbcType=VARCHAR},
+            realname = #{realname,jdbcType=VARCHAR},
+            sex      = #{sex,jdbcType=INTEGER}
+        where userid = #{userid,jdbcType=INTEGER}
+    </update>
+</mapper>
