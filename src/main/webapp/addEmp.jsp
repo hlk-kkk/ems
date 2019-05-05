@@ -40,7 +40,7 @@
                             name:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="text" class="inputgri" name="username"/>
+                            <input type="text" class="inputgri" name="membername"/>
                         </td>
                     </tr>
                     <tr>

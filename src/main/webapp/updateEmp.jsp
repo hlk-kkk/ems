@@ -40,8 +40,8 @@
                             id:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="text" disabled class="inputgri" name="username"
-                                   value="${requestScope.user1.userid}"/>
+                            <input type="text" disabled class="inputgri" name="membername"
+                                   value="${requestScope.member1.memberid}"/>
                         </td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@
                             name:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="text" class="inputgri" name="username" value="${requestScope.user1.username}"/>
+                            <input type="text" class="inputgri" name="membername" value="${requestScope.member1.membername}"/>
                         </td>
                     </tr>
                     <tr>
@@ -57,7 +57,7 @@
                             realname:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="text" class="inputgri" name="realname" value="${requestScope.user1.realname}"/>
+                            <input type="text" class="inputgri" name="realname" value="${requestScope.member1.realname}"/>
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
                             sex:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="text" class="inputgri" name="sex" value="${requestScope.user1.sex}"/>
+                            <input type="text" class="inputgri" name="sex" value="${requestScope.member1.sex}"/>
                         </td>
                     </tr>
                 </table>

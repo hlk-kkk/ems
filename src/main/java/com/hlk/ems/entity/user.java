@@ -2,12 +2,12 @@ package com.hlk.ems.entity;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
-    private Integer userid;
+public class user implements Serializable {
+    private Integer memberid;
 
-    private String username;
+    private String membername;
 
-    private String userpwd;
+    private String memberpwd;
 
     private String realname;
 
@@ -15,28 +15,28 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getmemberid() {
+        return memberid;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setmemberid(Integer memberid) {
+        this.memberid = memberid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getmembername() {
+        return membername;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setmembername(String membername) {
+        this.membername = membername == null ? null : membername.trim();
     }
 
-    public String getUserpwd() {
-        return userpwd;
+    public String getmemberpwd() {
+        return memberpwd;
     }
 
-    public void setUserpwd(String userpwd) {
-        this.userpwd = userpwd == null ? null : userpwd.trim();
+    public void setmemberpwd(String memberpwd) {
+        this.memberpwd = memberpwd == null ? null : memberpwd.trim();
     }
 
     public String getRealname() {
@@ -66,10 +66,10 @@ public class User implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        User other = (User) that;
-        return (this.getUserid() == null ? other.getUserid() == null : this.getUserid().equals(other.getUserid()))
-                && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-                && (this.getUserpwd() == null ? other.getUserpwd() == null : this.getUserpwd().equals(other.getUserpwd()))
+        user other = (user) that;
+        return (this.getmemberid() == null ? other.getmemberid() == null : this.getmemberid().equals(other.getmemberid()))
+                && (this.getmembername() == null ? other.getmembername() == null : this.getmembername().equals(other.getmembername()))
+                && (this.getmemberpwd() == null ? other.getmemberpwd() == null : this.getmemberpwd().equals(other.getmemberpwd()))
                 && (this.getRealname() == null ? other.getRealname() == null : this.getRealname().equals(other.getRealname()))
                 && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()));
     }
@@ -78,9 +78,9 @@ public class User implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUserid() == null) ? 0 : getUserid().hashCode());
-        result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
-        result = prime * result + ((getUserpwd() == null) ? 0 : getUserpwd().hashCode());
+        result = prime * result + ((getmemberid() == null) ? 0 : getmemberid().hashCode());
+        result = prime * result + ((getmembername() == null) ? 0 : getmembername().hashCode());
+        result = prime * result + ((getmemberpwd() == null) ? 0 : getmemberpwd().hashCode());
         result = prime * result + ((getRealname() == null) ? 0 : getRealname().hashCode());
         result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
         return result;
@@ -92,9 +92,9 @@ public class User implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", userid=").append(userid);
-        sb.append(", username=").append(username);
-        sb.append(", userpwd=").append(userpwd);
+        sb.append(", memberid=").append(memberid);
+        sb.append(", membername=").append(membername);
+        sb.append(", memberpwd=").append(memberpwd);
         sb.append(", realname=").append(realname);
         sb.append(", sex=").append(sex);
         sb.append(", serialVersionUID=").append(serialVersionUID);

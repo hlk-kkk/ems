@@ -1,23 +1,23 @@
 package com.hlk.ems.dao;
 
-import com.hlk.ems.entity.User;
+import com.hlk.ems.entity.user;
 
 import java.util.List;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userid);
+    int deleteByPrimaryKey(Integer memberid);
 
-    int insert(User record);
+    int insert(user record);
 
-    int insertSelective(User record);
+    int insertSelective(user record);
 
-    User selectByPrimaryKey(Integer userid);
+    user selectByPrimaryKey(Integer memberid);
 
-    int updateByPrimaryKeySelective(User record);
+    int updateByPrimaryKeySelective(user record);
 
-    int updateByPrimaryKey(User record);
+    int updateByPrimaryKey(user record);
 
-    List<User> selectAll();
+    List<user> selectAll();
 
-    User selectByUser(User user);
+    user selectBymember(user user);
 }

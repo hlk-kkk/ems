@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hlk.ems.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="com.hlk.ems.entity.User">
+    <resultMap id="BaseResultMap" type="com.hlk.ems.entity.user">
         <id column="userid" property="userid" jdbcType="INTEGER"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="userpwd" property="userpwd" jdbcType="VARCHAR"/>
@@ -22,7 +22,7 @@
         from k_user
         where userid = #{userid,jdbcType=INTEGER}
     </select>
-    <select id="selectByUser" resultMap="BaseResultMap" parameterType="com.hlk.ems.entity.User">
+    <select id="selectByUser" resultMap="BaseResultMap" parameterType="com.hlk.ems.entity.user">
         select
         <include refid="Base_Column_List"/>
         from k_user
@@ -38,13 +38,13 @@
         from k_user
         where userid = #{userid,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="com.hlk.ems.entity.User">
+    <insert id="insert" parameterType="com.hlk.ems.entity.user">
         insert into k_user (userid, username, userpwd,
                             realname, sex)
         values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR},
                 #{realname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER})
     </insert>
-    <insert id="insertSelective" parameterType="com.hlk.ems.entity.User">
+    <insert id="insertSelective" parameterType="com.hlk.ems.entity.user">
         insert into k_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userid != null">
@@ -81,7 +81,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.hlk.ems.entity.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.hlk.ems.entity.user">
         update k_user
         <set>
             <if test="username != null">
@@ -99,7 +99,7 @@
         </set>
         where userid = #{userid,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.hlk.ems.entity.User">
+    <update id="updateByPrimaryKey" parameterType="com.hlk.ems.entity.user">
         update k_user
         set username = #{username,jdbcType=VARCHAR},
             userpwd  = #{userpwd,jdbcType=VARCHAR},

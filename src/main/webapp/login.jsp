@@ -36,10 +36,10 @@
                        class="form_table">
                     <tr>
                         <td valign="middle" align="right">
-                            username:
+                            membername:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="text" class="inputgri" name="username"/>
+                            <input type="text" class="inputgri" name="membername"/>
                         </td>
                     </tr>
                     <tr>
@@ -47,7 +47,7 @@
                             password:
                         </td>
                         <td valign="middle" align="left">
-                            <input type="password" class="inputgri" name="userpwd"/>
+                            <input type="password" class="inputgri" name="memberpwd"/>
                         </td>
                     </tr>
                 </table>

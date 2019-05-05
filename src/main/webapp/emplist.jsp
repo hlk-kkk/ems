@@ -56,7 +56,7 @@
                                 ${vs.count}
                         </td>
                         <td>
-                                ${p.username}
+                                ${p.membername}
                         </td>
                         <td>
                                 ${p.realname}
@@ -65,7 +65,7 @@
                                 ${p.sex}
                         </td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/selectById?id=${p.userid}">delete
+                            <a href="${pageContext.request.contextPath}/selectById?id=${p.memberid}">delete
                                 emp</a>&nbsp;<a href="updateEmp.jsp">修改</a>
                         </td>
                     </tr>

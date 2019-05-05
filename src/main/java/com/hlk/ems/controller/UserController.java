@@ -1,6 +1,6 @@
 package com.hlk.ems.controller;
 
-import com.hlk.ems.entity.User;
+import com.hlk.ems.entity.user;
 import com.hlk.ems.service.UserService;
 import com.hlk.ems.util.ValidateImageCodeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,24 +23,24 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserService memberService;
     @Autowired
     private HttpServletRequest httpServletRequest;
 
     @RequestMapping("/login")
     @ResponseBody
-    public Map<String, String> Login(User user) {
+    public Map<String, String> Login(user user) {
         Map<String, String> map = new HashMap();
-        userService.login(user);
+        memberService.login(user);
         return map;
     }
 
     @RequestMapping("/register")
-    public Map<String, String> Register(User user, String code, HttpSession session) {
+    public Map<String, String> Register(user user, String code, HttpSession session) {
         Map<String, String> map = new HashMap<String, String>();
         String realcode = (String) session.getAttribute("code");
         if (realcode.equals(code)) {
-            userService.register(user);
+            memberService.register(user);
             map.put("msg", "注册成功");
         } else {
             map.put("msg", "验证码错误");
@@ -50,26 +50,26 @@ public class UserController {
 
     @RequestMapping("/showAll")
     public String showAll() {
-        List<User> users = userService.selectAll();
-        httpServletRequest.setAttribute("list", users);
+        List<user> members = memberService.selectAll();
+        httpServletRequest.setAttribute("list", members);
         return "emplist";
     }
 
     @RequestMapping("/add")
-    public void add(User user) {
-        userService.add(user);
+    public void add(user user) {
+        memberService.add(user);
     }
 
     @RequestMapping("selectById")
-    public String selectById(User user) {
-        User user1 = userService.selectById(user);
-        httpServletRequest.setAttribute("user1", user1);
+    public String selectById(user user) {
+        user member1 = memberService.selectById(user);
+        httpServletRequest.setAttribute("member1", member1);
         return "updateEmp";
     }
 
     @RequestMapping("update")
-    public String update(User user) {
-        userService.update(user);
+    public String update(user user) {
+        memberService.update(user);
         return "emplist";
     }
 
